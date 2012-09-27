@@ -1,0 +1,17 @@
+%link(rel="stylesheet" type="text/css" href="../style.css")
+%h1 ????
+
+%h2 Do you really want to buy this item?
+%p
+ #{itemToBuy.to_s}
+ %p
+  Your credit now: #{Users::User.by_name(current_name).amount}
+  Your credit after the deal: #{Users::User.by_name(current_name).amount - itemToBuy.price}
+%form( action="/buy" method="POST" )
+  %input{:type => "submit", :name => "Yes", :class => "button"}
+  %input{:type => "submit", :name => "Abort", :class => "button"}
+%p
+%a{:href => "/logout"} Logout
+
+%hr
+Time: #{time.strftime("%H:%M:%S")}

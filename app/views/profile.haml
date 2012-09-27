@@ -1,0 +1,30 @@
+%link(rel="stylesheet" type="text/css" href="../style.css")
+%h1 This is the profile of: #{profile_owner}
+
+%h2 These are his/her items:
+
+%ul
+
+  - for item in allItemList
+
+    - if item.owner == Users::User.by_name(profile_owner)
+
+      - if item.active
+        %li{:class => "active"}
+          #{item.to_s}
+          -if item.owner != Users::User.by_name(current_name)
+            %a{:href => "/buy/#{item.id}"} Buy
+          %a{:href => "/profile/#{item.owner}"} Profile
+
+      - else
+        %li{:class => "inactive"}
+          #{item.to_s}
+          %a{:href => "/profile/#{item.owner}"} Profile
+
+
+
+%a{:href => "/logout"} Logout
+
+
+%hr
+Time: #{time.strftime("%H:%M:%S")}
