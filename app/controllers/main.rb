@@ -35,19 +35,30 @@ class Main < Sinatra::Application
                                       :allItemList => Items::Item.all}
   end
 
+  get '/buy/:item_id' do
 
+    itemToBuy = Items::Item.by_id(params[:item_id].to_i)
+    buyer = Users::User.by_name session[:name]
+    seller =Items::Item.by_id(params[:item_id].to_i).owner
 
-get '/buy/:item_id' do
+    if buyer.amount-itemToBuy.price >= 0
+      buyer.buy_item(itemToBuy,seller)
+      redirect '/'
+    else
+      redirect '/error'
+
+    end
+
+  end
+
+get '/error' do
   redirect '/login' unless session[:name]
 
-
-
-  haml :buy, :locals  => {      :time => Time.now ,
-                                    :userList => Users::User.all,
-                                    :current_name => session[:name],
-                                    :allItemList => Items::Item.all,
-                                    :itemToBuy => Items::Item.by_id(params[:item_id].to_i)}
+  haml :error, :locals  => {      :time => Time.now ,
+                                :userList => Users::User.all,
+                                :current_name => session[:name],
+                                :allItemList => Items::Item.all,
+                                :itemToBuy => Items::Item.by_id(params[:item_id].to_i)}
 end
 
 end
-

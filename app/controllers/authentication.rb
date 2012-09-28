@@ -26,9 +26,6 @@ class Authentication < Sinatra::Application
     redirect '/'
   end
 
-  post "/buy" do
-
-  end
 
   get "/logout" do
     session[:name] = nil
