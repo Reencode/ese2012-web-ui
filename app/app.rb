@@ -17,12 +17,11 @@ class App < Sinatra::Base
     Users::User.named( 'ese' ).save()
     Users::User.named( 'Joel' ).save()
     Users::User.named( 'Aaron').save()
-    Items::Item.feature("Magnifier",30,Users::User.by_name("ese")).save()
-    Items::Item.feature("Cheddar Cheese from 1855",120,Users::User.by_name("ese")).save()
-    Items::Item.feature("Tablespoon",30,Users::User.by_name("Joel")).save()
+    Items::Item.feature("Magnifier", 30, Users::User.by_name("ese")).save()
+    Items::Item.feature("Cheddar Cheese from 1855", 120, Users::User.by_name("ese")).save()
+    Items::Item.feature("Tablespoon", 30, Users::User.by_name("Joel")).save()
 
   end
-
 end
 
 # Now, run it

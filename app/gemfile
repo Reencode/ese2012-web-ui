@@ -1,0 +1,4 @@
+source 'http://rubyforge.org'
+gem 'sinatra'
+gem 'haml'
+

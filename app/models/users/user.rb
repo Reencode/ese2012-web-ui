@@ -1,4 +1,5 @@
-require '../app/models/items/item'
+require '../../models/items/item'
+
 #user has a name and an amount and can buy active items
 #if amount is not enough, the transaction fails
 module Users
