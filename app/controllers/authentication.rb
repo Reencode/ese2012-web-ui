@@ -33,7 +33,14 @@ class Authentication < Sinatra::Application
   end
 
   get "/buy" do
-    haml :buy
+    haml :buy, :locals  => {          :time => Time.now ,
+                                      :userList => Users::User.all,
+                                      :buyer => session[:name],
+                                      :seller => seller,
+                                      :itemToBuy => itemToBuy,
+                                      :allItemList => Items::Item.all
+    }
+
   end
 
 end

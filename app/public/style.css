@@ -1,21 +1,16 @@
-.selected {
-    font-weight: bold ;
-    color: red ;
-}
-.active {
-    font-weight: bold ;
-    color: green ;
-}
-.inactive {
-    font-weight: lighter ;
-    color: red ;
-}
-
 body {
     margin-left: 0px;
     margin-right: 0px;
     background-color: #616161;
 }
+#header {
+       width: auto;
+       height: 150px;
+       background-color: #5ea073;
+       border-bottom: 3px double #bdd0d0;
+}
+
+
 
 #layer01_holder {
     width:563px;
@@ -96,8 +91,8 @@ body {
     float:left;
     display:block;
     font-family: Verdana;
-    color: #FFFF00;
-    font-size: 12px;
+    color: #ffd026;
+    font-size: 15px;
     font-weight: bold;
 }
 #layer03_holder #right {
@@ -136,7 +131,7 @@ body {
     font-family: Arial;
 }
 #layer04_holder #center a:link, a:visited {
-    color: #FFFF00;
+    color: #ff821f;
     text-decoration:none;
 }
 #layer04_holder #center a:hover {
@@ -155,7 +150,7 @@ body {
     width:563px;
     height:auto;
     margin:auto;
-    color: #393939;
+    color: #bdd0d0;
     font-family: Verdana, Arial, Helvetica, sans-serif;
     font-size: 12px;
     text-align: center;
@@ -171,16 +166,28 @@ body {
     color: #FFFFFF;
 }
 #layer03_holder #center input {
-    background-color:#454544;
+    background-color:#616161;
     border:solid 1px #d2d0b5;
     color: #FFFFFF;
 }
 #layer03_holder #center #button {
     margin-top:5px;
     background-color: #CCCCCC;
-    border: 3px double #454544;
-    color: #454544;
+    border: 3px double #bdd0d0;
+    color: #bdd0d0;
     margin-left: 169px;
     right: 0px;
     width: 50px;
+}
+.selected {
+    font-weight: bold ;
+    color: red ;
+}
+.active {
+    font-weight: bold ;
+    color: green ;
+}
+.inactive {
+    font-weight: lighter ;
+    color: red ;
 }

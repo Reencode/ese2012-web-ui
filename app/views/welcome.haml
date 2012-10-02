@@ -1,5 +1,6 @@
 %html
 %link(rel="stylesheet" type="text/css" href="../style.css")
+%header
 %h1 Welcome #{current_name.to_s}
 %h2 Credit: #{Users::User.by_name(current_name).amount}
 

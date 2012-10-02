@@ -72,6 +72,10 @@ class User
     @@allItemList
   end
 
+  def self.all_users
+    @@userList
+  end
+
   def buy_item( item, from )
     if item.active
       if self.amount-item.price >= 0

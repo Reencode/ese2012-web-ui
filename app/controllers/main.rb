@@ -51,6 +51,7 @@ class Main < Sinatra::Application
 
   end
 
+
 get '/error' do
   redirect '/login' unless session[:name]
 
