@@ -1,9 +1,10 @@
 require 'rubygems'
 require 'sinatra'
 require 'tilt/haml'
-require '../app/models/users/user'
-require '../app/controllers/main'
-require '../app/controllers/authentication'
+require 'models/users/user.rb'
+require 'controllers/main.rb'
+require 'controllers/authentication.rb'
+
 
 class App < Sinatra::Base
 
@@ -11,7 +12,7 @@ class App < Sinatra::Base
   use Main
 
   enable :sessions
-  set :public_folder, 'app/public'
+  set :public_folder,  'app/public'
 
   configure :development do
     Users::User.named( 'ese' ).save()

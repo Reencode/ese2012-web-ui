@@ -1,6 +1,6 @@
 require 'tilt/haml'
-require '../models/users/user'
-require '../models/items/item'
+require 'models/users/user.rb'
+require 'models/items/item.rb'
 
 class Main < Sinatra::Application
 
@@ -8,7 +8,7 @@ class Main < Sinatra::Application
 
     redirect '/login' unless session[:name]
 
-    haml :welcome, :locals  => {      :time => Time.now ,
+    haml :welcome, :locals  => {      :time => Time.now,
                                       :userList => Users::User.all,
                                       :current_name => session[:name],
                                       :allItemList => Items::Item.all }
@@ -54,7 +54,7 @@ class Main < Sinatra::Application
 get '/error' do
   redirect '/login' unless session[:name]
 
-  haml :error, :locals  => {      :time => Time.now ,
+  haml :error, :locals  => {    :time => Time.now ,
                                 :userList => Users::User.all,
                                 :current_name => session[:name],
                                 :allItemList => Items::Item.all,
