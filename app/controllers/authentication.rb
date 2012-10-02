@@ -1,6 +1,7 @@
 require 'tilt/haml'
-require '../app/models/users/user'
-require '../app/models/items/item'
+require 'models/items/item.rb'
+require 'models/users/user.rb'
+
 
 class Authentication < Sinatra::Application
 

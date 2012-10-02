@@ -1,6 +1,6 @@
 require 'tilt/haml'
-require '../app/models/users/user'
-require '../app/models/items/item'
+require 'models/users/user.rb'
+require 'models/items/item.rb'
 
 class Main < Sinatra::Application
 

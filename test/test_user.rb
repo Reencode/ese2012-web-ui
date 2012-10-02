@@ -1,6 +1,6 @@
 require "test/unit"
-require '../app/models/items/item'
-require '../app/models/users/user'
+require 'app/models/items/item.rb'
+require 'app/models/users/user.rb'
 
 include Items
 include Users
