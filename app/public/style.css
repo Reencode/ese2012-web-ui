@@ -7,10 +7,12 @@ body {
        width: auto;
        height: 150px;
        background-color: #5ea073;
+       background-repeat: repeat-x;
        border-bottom: 3px double #bdd0d0;
+       float:left;
+       display:block;
+
 }
-
-
 
 #layer01_holder {
     width:563px;

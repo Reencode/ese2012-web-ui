@@ -1,33 +1,34 @@
 %html
-%link(rel="stylesheet" type="text/css" href="../style.css")
-%header
-%h1 Welcome #{current_name.to_s}
-%h2 Credit: #{Users::User.by_name(current_name).amount}
-
-%h3 These are the currently active items:
-%ul
-  - for item in allItemList
-    - if item.active
-      %li{:class => "active"}
-        #{item.to_s}
-        -if item.owner != Users::User.by_name(current_name)
-          %a{:href => "/buy/#{item.id}"} Buy
-        %a{:href => "/profile/#{item.owner}"} Profile
-        -if item.owner == Users::User.by_name(current_name)
-          %a{:href => "/change_status/#{item.id}"} Change status
-
-
-%h3 These are the currently inactive items:
-%ul
-  - for item in allItemList
-    - if !item.active
-      %li{:class => "inactive"}
-        #{item.to_s}
-        %a{:href => "/profile/#{item.owner}"} Profile
-        -if item.owner == Users::User.by_name(current_name)
-          %a{:href => "/change_status/#{item.id}"} Change status
+ %link(rel="stylesheet" type="text/css" href="../style.css")
+ %header
+  %h1 Welcome #{current_name.to_s}
+  %h2 Credit: #{Users::User.by_name(current_name).amount}
+ %body
+  %h3 These are the currently active items:
+  %ul
+   -for item in allItemList
+    -if item.active
+     %li{:class => "active"}
+      #{item.to_s}
+      %a{:href => "/profile/#{item.owner}"} Profile
+      -if item.owner != Users::User.by_name(current_name)
+       %a{:href => "/buy/#{item.id}"} Buy
+      -else
+       %a{:href => "/change_status/#{item.id}"} Change status
 
 
-%a{:href => "/logout"} Logout
-%hr
-Time: #{time.strftime("%H:%M:%S")}
+  %h3 These are the currently inactive items:
+  %ul
+   -for item in allItemList
+    -if !item.active
+     %li{:class => "inactive"}
+      #{item.to_s}
+      %a{:href => "/profile/#{item.owner}"} Profile
+      -if item.owner == Users::User.by_name(current_name)
+       %a{:href => "/change_status/#{item.id}"} Change status
+
+
+ %footer
+  %a{:href => "/logout"} Logout
+  %hr
+  Time: #{time.strftime("%H:%M:%S")}
