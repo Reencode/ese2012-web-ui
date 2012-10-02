@@ -1,0 +1,25 @@
+# Explain how a typical HTTP request is processed with the framework (the request lifecycle)
+
+The verb and request url is determined, the the following is searched:
+
+<verb> "<request url>" do 
+
+then the method resolved and executed, returning one of the three:
+ 
+-> a string with the result data
+-> an error code (if it returns an integer)
+-> a redirect (if redirect was used).
+
+# Why should GET requests be idempotent?
+
+GET means (in this case):
+ 
+You get a copy of what you requested, leaving the system you requested it from unchanged.
+
+Therefore the get request is returning the same result,
+when used multiple times when the system hasn't changed
+by other means.
+
+# Where should you format data for rendering?
+
+In the templates (f.e. haml, css), not in app.rb or the other models.
