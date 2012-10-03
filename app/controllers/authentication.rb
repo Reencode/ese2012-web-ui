@@ -33,8 +33,4 @@ class Authentication < Sinatra::Application
     redirect '/login'
   end
 
-  get "/buy" do
-    haml :buy
-  end
-
 end

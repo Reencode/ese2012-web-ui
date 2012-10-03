@@ -29,7 +29,7 @@ class Main < Sinatra::Application
     Items::Item.by_id(params[:item_id].to_i).change_state
 
 
-    haml :welcome, :locals  => {      :time => Time.now ,
+    haml :welcome, :locals  => {      :time => Time.now,
                                       :userList => Users::User.all,
                                       :current_name => session[:name],
                                       :allItemList => Items::Item.all}
@@ -37,18 +37,26 @@ class Main < Sinatra::Application
 
   get '/buy/:item_id' do
 
+    redirect '/login' unless session[:name]
+
+    haml :buy, :locals => {  :time => Time.now,
+                             :itemToBuy => Items::Item.by_id(params[:item_id].to_i),
+                             :current_name => session[:name] }
+  end
+
+  post '/bought/:item_id' do
+    redirect '/login' unless session[:name]
+
     itemToBuy = Items::Item.by_id(params[:item_id].to_i)
     buyer = Users::User.by_name session[:name]
-    seller =Items::Item.by_id(params[:item_id].to_i).owner
+    seller = itemToBuy.owner
 
     if buyer.amount-itemToBuy.price >= 0
-      buyer.buy_item(itemToBuy,seller)
+      buyer.buy_item(itemToBuy, seller)
       redirect '/'
     else
       redirect '/error'
-
     end
-
   end
 
 get '/error' do
